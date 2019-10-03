@@ -1,0 +1,29 @@
+{
+  "name": "serverless-big-mouth-python",
+  "version": "1.0.0",
+  "description": "Project for bit mouth serverless course written in python",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neovasili/serverless-big-mouth-python.git"
+  },
+  "author": "Juan Manuel Ruiz Fernández",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neovasili/serverless-big-mouth-python/issues"
+  },
+  "homepage": "https://github.com/neovasili/serverless-big-mouth-python#readme",
+  "dependencies": {
+    "request": "^2.88.0",
+    "serverless": "^1.43.0",
+    "serverless-pseudo-parameters": "^2.4.0",
+    "serverless-python-requirements": "^4.3.0"
+  },
+  "devDependencies": {
+    "serverless-localstack": "^0.4.15",
+    "serverless-offline": "^5.11.0"
+  }
+}

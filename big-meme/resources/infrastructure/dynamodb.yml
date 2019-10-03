@@ -1,0 +1,14 @@
+Resources: 
+  MemesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${ self:custom.memesTableName }
+      AttributeDefinitions:
+        - AttributeName: name
+          AttributeType: S
+      KeySchema:
+        - AttributeName: name
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1

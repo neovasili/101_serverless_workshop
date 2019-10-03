@@ -1,0 +1,10 @@
+# MacOS
+.DS_Store
+
+# Visual code
+.vscode
+
+# terraform
+.terraform
+*.tfstate
+*.tfstate.*

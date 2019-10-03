@@ -1,0 +1,23 @@
+{
+  "name": "lego-catalog",
+  "version": "1.0.0",
+  "description": "Lego catalog application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/cli.git"
+  },
+  "main": "src/controller/home.get_index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juan Manuel Ruiz Fernández",
+  "license": "MIT",
+  "dependencies": {
+    "serverless": "^1.51.0",
+    "serverless-pseudo-parameters": "^2.4.0",
+    "serverless-python-requirements": "^5.0.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^5.11.0"
+  }
+}

@@ -1,0 +1,76 @@
+<div class="component-page-header">
+  <h1>Set create</h1>
+</div>
+<form method="post" action="#" role="form">
+  <mat-card class="create-set-card">
+    <div class="fields-container">
+      <mat-form-field>
+        <input matInput placeholder="Set name" required
+          type="text"
+          id="setName"
+          [(ngModel)]="set.setName"
+          [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Set reference" required
+          type="text"
+          id="setReference"
+          [(ngModel)]="set.setReference"
+          [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Set family" required
+            type="text"
+            id="setFamily"
+            [(ngModel)]="set.setFamily"
+            [ngModelOptions]="{standalone: true}">
+          <mat-option value="City">City</mat-option>
+          <mat-option value="Classic">Classic</mat-option>
+          <mat-option value="Creator">Creator</mat-option>
+          <mat-option value="Technic">Technic</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Set quantity"
+          type="number"
+          id="setQuantity"
+          [(ngModel)]="set.setQuantity"
+          min="1"
+          value="1"
+          [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Set age"
+          type="test"
+          id="setAge"
+          [(ngModel)]="set.setAge"
+          [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Set parts"
+          type="number"
+          id="setParts"
+          [(ngModel)]="set.setParts"
+          [ngModelOptions]="{standalone: true}"
+          min="1">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Set image url"
+          type="text"
+          id="setDefaultImage"
+          [(ngModel)]="set.setDefaultImage"
+          [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-checkbox
+        type="boolean"
+        [(ngModel)]="set.setBuild"
+        [ngModelOptions]="{standalone: true}"
+        value="false">Set build
+      </mat-checkbox>
+    </div>
+    <div class="buttons-container">
+      <button mat-button routerLink="/set-list" class="">Cancel</button>
+      <button mat-button (click)="createSet()" type="submit" class="back-primary">Save</button>
+    </div>
+  </mat-card>
+</form>

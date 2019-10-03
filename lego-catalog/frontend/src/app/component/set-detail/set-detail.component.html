@@ -1,0 +1,46 @@
+<div class="set-detail-container">
+    <mat-card class="set-item-card">
+        <mat-card-header>
+            <mat-card-title>{{ selectedSet.setName }}</mat-card-title>
+            <mat-card-subtitle>{{ selectedSet.setReference }}</mat-card-subtitle>
+        </mat-card-header>
+		<button mat-icon-button
+				class="edit-set"
+                routerLink="/set-edit/{{ selectedSet.setReference }}">
+			<mat-icon aria-label="Edit set button">edit</mat-icon>
+		</button>
+		<button mat-icon-button
+				class="remove-set"
+				(click)="deleteSet()">
+			<mat-icon aria-label="Remove set button">delete</mat-icon>
+		</button>
+        <div class="set-images-container">
+            <img mat-card-image
+				 src="{{ selectedSet.setDefaultImage }}"
+				 onerror="this.src='../../../assets/img/no-image.png'"
+                 alt="Set default image">
+        </div>
+        <mat-card-content>
+            <div class="set-family">
+                <mat-card-title>Set family</mat-card-title>
+                <mat-card-subtitle>{{ selectedSet.setFamily }}</mat-card-subtitle>
+            </div>
+            <div class="set-quantity">
+                <mat-card-title>Set quantity</mat-card-title>
+                <mat-card-subtitle>{{ selectedSet.setQuantity }}</mat-card-subtitle>
+            </div>
+            <div class="set-age">
+                <mat-card-title>Set age</mat-card-title>
+                <mat-card-subtitle>{{ selectedSet.setAge }}</mat-card-subtitle>
+            </div>
+            <div class="set-parts">
+                <mat-card-title>Set parts</mat-card-title>
+                <mat-card-subtitle>{{ selectedSet.setParts }}</mat-card-subtitle>
+            </div>
+            <div class="set-build">
+                <mat-card-title>Set build</mat-card-title>
+                <mat-card-subtitle>{{ selectedSet.setBuild }}</mat-card-subtitle>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

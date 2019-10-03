@@ -1,0 +1,74 @@
+service: big-memes-python 
+
+provider:
+  name: aws
+  runtime: python3.7
+  region: eu-west-1
+  profile: jmcore
+  stage: ${ opt:stage, 'dev' }
+  timeout: 3s
+  memory: 128
+  iamRoleStatements:
+    - Effect: Allow
+      Action: dynamodb:scan
+      Resource: 
+        'Fn::GetAtt': [ MemesTable, Arn ]
+    - Effect: Allow
+      Action: 
+        - "lambda:InvokeFunction"
+      Resource: 
+        - arn:aws:lambda:${ self:provider.region }:#{ AWS::AccountId }:function:big-memes-python-${ self:provider.stage }-get-memes
+
+plugins:
+  - serverless-pseudo-parameters
+  - serverless-python-requirements
+  - serverless-offline
+
+custom:
+  memesTableName: memes-${ self:provider.stage }
+  checkGitBranchBeforeDeploy:
+    # dev: feature/redesign
+    dev: develop
+    staging: master
+    production: prod
+  pythonRequirements:
+    dockerizePip: non-linux
+  serviceEndpoint: ${ cf:big-memes-python-${ self:provider.stage }.ServiceEndpoint }
+
+functions:
+  get-index:
+    handler: src/controller/main.get_index
+    events:
+      - http:
+          path: /
+          method: get
+    environment:
+      LambdaFunctionName: big-memes-python-${ self:provider.stage }-get-memes
+      CognitoUserPoolID: ${ cf:big-memes-python-${ self:provider.stage }.UserPoolId }
+      CognitoClientID: ${ cf:big-memes-python-${ self:provider.stage }.UserPoolClientId }
+      SearchAPIURL: ${ self:custom.serviceEndpoint }/memes/search/
+      Region: ${ self:provider.region }
+
+  get-memes:
+    handler: src/controller/meme.get_all_memes
+    environment:
+      MemesTableName: ${ self:custom.memesTableName }
+      
+  search-meme:
+    handler: src/controller/meme.get_memes_by_theme
+    events:
+      - http:
+          path: /memes/search/
+          method: post
+          authorizer:
+            type: COGNITO_USER_POOLS
+            authorizerId:
+              Ref: ApiGatewayAuthorizer
+    environment:
+      MemesTableName: ${ self:custom.memesTableName }
+
+resources:
+  - ${ file( resources/infrastructure/dynamodb.yml ) }
+  - ${ file( resources/infrastructure/cognito.yml) }
+  - ${ file( resources/infrastructure/api-authorizer.yml ) }
+      

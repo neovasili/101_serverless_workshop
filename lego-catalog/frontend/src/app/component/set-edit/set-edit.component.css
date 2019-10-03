@@ -1,0 +1,22 @@
+.edit-set-card {
+  max-width: 400px;
+  margin: auto;
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.fields-container > * {
+  width: 100%;
+}
+
+.buttons-container {
+  padding: 5%;
+  text-align: center;
+}
+
+.buttons-container > button {
+	margin: 0 1%;
+}

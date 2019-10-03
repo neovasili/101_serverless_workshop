@@ -1,0 +1,116 @@
+.fullscreenDiv {
+    background-color: white;
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    top: 0px;
+    left: 0;
+    position: absolute;        
+}
+.memesDiv {
+    background-color: #eeeecc;
+    width: 100%;
+    height: auto;
+}
+.image-container {
+    margin: 0 auto;
+    width: 200px;
+}
+.image-container > img { 
+    width: 100%;
+}
+.dayOfWeek {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    padding: 10px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.column-container {
+    padding: 0;
+    margin: 0;        
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.row-container {
+    padding: 5px;
+    margin: 5px;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item {
+    padding: 5px;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.meme {
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    height: auto;
+    width: auto;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+}
+.meme-name {
+    font-size: 16px;
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    padding: 10px;
+    margin: 0px;
+}
+.meme-name.container {
+      max-width: 190px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+}
+.meme-name.container > span {
+    white-space: nowrap;
+}
+.meme-image {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+.row-container-left {
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+}
+.menu-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+.text-trail-space {
+    margin-right: 10px;
+}
+.hidden {
+    display: none;
+}
+label, button, input {
+    display:block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+fieldset { 
+    padding:0; 
+    border:0; 
+    margin-top:25px; 
+}

@@ -1,0 +1,28 @@
+service: big-mouth
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-1
+  profile: jmcore
+  stage: ${ opt:stage, 'dev' }
+  timeout: 3
+  memorySize: 128
+  tags:
+    serviceName: big-mouth-back
+    language: nodejs
+  logs:
+    restApi:
+      accessLogging: true
+
+plugins:
+  - serverless-pseudo-parameters
+  - serverless-offline
+
+functions:
+  get-index:
+    handler: functions/get-index.handler
+    events:
+      - http:
+          path: /
+          method: get

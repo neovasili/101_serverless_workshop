@@ -1,0 +1,28 @@
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar > * {
+  padding: 0 10px;
+}
+
+.mat-toolbar > *.hoverable:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.mat-toolbar span {
+  min-width: 100px;
+  text-align: center;
+}
+
+.user-avatar {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.user-name {
+  font-style: italic;
+}

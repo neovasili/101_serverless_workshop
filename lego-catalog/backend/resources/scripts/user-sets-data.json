@@ -1,0 +1,42 @@
+[
+  {
+    "userID": "juanma",
+    "sets": [
+      {
+        "setReference": "21309",
+        "setAge": "14+",
+        "setBuild": true,
+        "setDefaultImage": "https://sh-s7-live-s.legocdn.com/is/image/LEGO/21309?hei=800&wid=1067&qlt=1",
+        "setFamily": "Classic",
+        "setName": "LEGO® NASA: Apolo Saturno V",
+        "setParts":	1969,
+        "setQuantity":	1
+      },
+      {
+        "setReference": "31066",
+        "setAge": "7-12",
+        "setBuild": true,
+        "setDefaultImage": "https://sh-s7-live-s.legocdn.com/is/image/LEGO/31066?qlt=80,1&op_sharpen=0&resMode=sharp2&op_usm=1,1,6,0&iccEmbed=0&printRes=72&id=ZpQQ51&wid=476&hei=476&fmt=jpg",
+        "setFamily": "Creator",
+        "setName": "Lanzadera espacial",
+        "setParts":	285,
+        "setQuantity":	1
+      }
+    ]
+  },
+  {
+    "userID": "neovasili2",
+    "sets": [
+      {
+        "setReference": "42065",
+        "setAge": "9-16",
+        "setBuild": true,
+        "setDefaultImage": "https://sh-s7-live-s.legocdn.com/is/image/LEGO/42065?qlt=80,1&op_sharpen=0&resMode=sharp2&op_usm=1,1,6,0&iccEmbed=0&printRes=72&id=TRLPf1&wid=680&hei=680&fmt=jpg",
+        "setFamily": "Technic",
+        "setName": "Deportivo todoterreno RC",
+        "setParts":	370,
+        "setQuantity":	1
+      }
+    ]
+  }
+]

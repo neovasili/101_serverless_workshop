@@ -1,0 +1,112 @@
+service: sls-lego-catalog-back
+
+frameworkVersion: "=1.51.0"
+
+provider:
+  name: aws
+  runtime: python3.7
+  region: eu-west-1
+  profile: jmcore
+  stage: ${ opt:stage, 'dev' }
+  timeout: 3s
+  memory: 128
+  environment:
+    UsersTable: serverless_workshop
+  iamRoleStatements:
+    - Effect: Allow
+      Action: dynamodb:*
+      Resource: arn:aws:dynamodb:${ self:provider.region }:#{ AWS::AccountId }:table/serverless_workshop
+  tags:
+    serviceName: sls-lego-catalog-back
+    language: python
+  logs:
+    restApi:
+      accessLogging: true
+
+custom:
+  cognitoUserPoolARN: arn:aws:cognito-idp:${ self:provider.region }:#{ AWS::AccountId }:userpool/eu-west-1_nteEJTM4E
+
+plugins:
+  - serverless-pseudo-parameters
+  - serverless-python-requirements
+  - serverless-offline
+
+package:
+  individually: true
+  include:
+    - src/service/user.py
+    - src/service/set.py
+    - src/model/user.py
+    - src/model/set.py
+    - src/helper/repository.py
+    - src/helper/response.py
+    - src/helper/dynamodb_repository.py
+  exclude:
+    - "**/*"
+
+functions:
+
+  get-user-sets:
+    handler: src/handler/get_user_sets.handler
+    package:
+      include:
+        - src/handler/get_user_sets.py
+    events:
+      - http:
+          path: /user/{user_id}/set
+          method: get
+          cors: true
+          authorizer:
+            arn: ${ self:custom.cognitoUserPoolARN }
+
+  get-set-detail:
+    handler: src/handler/get_set_detail.handler
+    package:
+      include:
+        - src/handler/get_set_detail.py
+    events:
+      - http:
+          path: /user/{user_id}/set/{set_id}
+          method: get
+          cors: true
+          authorizer:
+            arn: ${ self:custom.cognitoUserPoolARN }
+
+  add-user-set:
+    handler: src/handler/new_user_set.handler
+    package:
+      include:
+        - src/handler/new_user_set.py
+    events:
+      - http:
+          path: /user/{user_id}/set
+          method: post
+          cors: true
+          authorizer:
+            arn: ${ self:custom.cognitoUserPoolARN }
+
+  update-user-set:
+    handler: src/handler/update_user_set.handler
+    package:
+      include:
+        - src/handler/update_user_set.py
+    events:
+      - http:
+          path: /user/{user_id}/set/{set_id}
+          method: put
+          cors: true
+          authorizer:
+            arn: ${ self:custom.cognitoUserPoolARN }
+
+  delete-user-set:
+    handler: src/handler/delete_user_set.handler
+    package:
+      include:
+        - src/handler/delete_user_set.py
+    events:
+      - http:
+          path: /user/{user_id}/set/{set_id}
+          method: delete
+          cors: true
+          authorizer:
+            arn: ${ self:custom.cognitoUserPoolARN }

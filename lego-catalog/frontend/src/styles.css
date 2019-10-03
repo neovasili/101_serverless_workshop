@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/icon?family=Roboto);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+/*
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+ */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  font-family: Roboto;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.back-primary {
+  background-color: #dbdbdb;
+}
+
+.font-primary {
+  color: #dbdbdb;
+}
+
+.component-page-header {
+  text-align: center;
+}
+
+.mat-toolbar.mat-primary {
+  background-color: #666;
+}

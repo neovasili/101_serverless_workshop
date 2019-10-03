@@ -1,0 +1,25 @@
+{
+    "name": "big-mouth",
+    "version": "1.0.0",
+    "description": "",
+    "main": "functions/get-index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "aws4": "^1.8.0",
+        "bluebird": "^3.5.3",
+        "co": "^4.6.0",
+        "fs": "0.0.1-security",
+        "mustache": "^3.0.1",
+        "superagent": "^4.1.0",
+        "superagent-promise": "^1.1.0"
+    },
+    "devDependencies": {
+        "aws-sdk": "^2.400.0",
+        "serverless-pseudo-parameters": "^2.4.0",
+        "serverless-offline": "^5.11.0"
+    }
+}

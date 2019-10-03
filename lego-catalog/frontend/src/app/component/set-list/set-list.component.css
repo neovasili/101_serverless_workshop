@@ -1,0 +1,11 @@
+.mat-list-item.set-list-item {
+  height: auto;
+  cursor: pointer;
+  width: 300px;
+  display: inline-block;
+  padding: 1%;
+}
+
+.mat-list-item.set-list-item:hover {
+  opacity: 0.5;
+}

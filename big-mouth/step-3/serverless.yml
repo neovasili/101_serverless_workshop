@@ -1,0 +1,53 @@
+service: big-mouth
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-1
+  profile: jmcore
+  stage: ${ opt:stage, 'dev' }
+  timeout: 3
+  memorySize: 128
+  iamRoleStatements:
+    - Effect: Allow
+      Action: dynamodb:scan
+      Resource: arn:aws:dynamodb:#{ AWS::Region }:#{ AWS::AccountId }:table/${ self:service }-${ self:provider.stage }-restaurants
+    - Effect: Allow
+      Action: execute-api:Invoke
+      Resource: arn:aws:execute-api:#{ AWS::Region }:#{ AWS::AccountId }:*/*/GET/restaurants
+  tags:
+    serviceName: big-mouth-back
+    language: nodejs
+  logs:
+    restApi:
+      accessLogging: true
+
+custom:
+  serviceStage: ${ self:service }-${ self:provider.stage }
+  restaurantsTable: ${ self:custom.serviceStage }-restaurants
+  serviceEndpoint: ${ cf:${ self:custom.serviceStage }.ServiceEndpoint }
+
+plugins:
+  - serverless-pseudo-parameters
+  - serverless-offline
+
+functions:
+  get-index:
+    handler: functions/get-index.handler
+    events:
+      - http:
+          path: /
+          method: get
+    environment:
+      restaurants_api: ${ self:custom.serviceEndpoint }/restaurants
+  get-restaurants:
+    handler: functions/get-restaurants.handler
+    events:
+      - http:
+          path: /restaurants/
+          method: get
+    environment:
+      restaurants_table: ${ self:custom.restaurantsTable }
+
+resources:
+  - ${ file( resources/infrastructure/dynamodb.yml ) }

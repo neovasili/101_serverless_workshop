@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Big Memes</title>
+
+    <script src="https://files.juanmanuelruizfernandez.com/js/aws-sdk-2.149.0.min.js"></script>
+    <script src="https://files.juanmanuelruizfernandez.com/js/aws-cognito-sdk.min.js"></script>
+    <script src="https://files.juanmanuelruizfernandez.com/js/amazon-cognito-identity.min.js"></script>
+    <script src="https://files.juanmanuelruizfernandez.com/js/jquery-3.2.1.min.js"></script>
+    <script src="https://files.juanmanuelruizfernandez.com/js/jquery-ui.min.js"></script>
+    <script src="https://files.juanmanuelruizfernandez.com/js/big-meme/main.js"></script>
+    <link rel="stylesheet" href="https://files.juanmanuelruizfernandez.com/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://files.juanmanuelruizfernandez.com/css/big-meme/main.css">
+    <script>
+      const AWS_REGION = '{{awsRegion}}';
+      const COGNITO_USER_POOL_ID = '{{cognitoUserPoolId}}';
+      const CLIENT_ID = '{{cognitoClientId}}';
+      const SEARCH_URL = '{{& searchUrl}}';
+    </script>
+  </head>
+
+  <body>
+    <div class="fullscreenDiv">
+      <ul class="column-container">
+        <li>
+          <ul class="row-container-left">
+            <li id="register" class="item text-trail-space hidden">
+              <a class="menu-text" href="#">Register</a>
+            </li>
+            <li id="sign-in" class="item menu-text text-trail-space hidden">
+              <a class="menu-text" href="#">Sign in</a>
+            </li>
+            <li id="sign-out" class="item menu-text text-trail-space hidden">
+              <a class="menu-text" href="#">Sign out</a>
+            </li>
+          </ul>
+        </li>
+        <li class="item">
+          <div class="image-container">
+            <img id="logo" src="https://files.juanmanuelruizfernandez.com/images/memes/troll-face.png">
+          </div>
+        </li>
+        <li class="item">
+          <input id="theme" type="text" size="50" placeholder="enter a theme, eg. 'chuck norris'"/>
+          <button id="search-memes" onclick="searchMemes()">Find Memes</button>
+        </li>
+        <li>
+          <div class="memesDiv column-container">
+            <b class="dayOfWeek">{{dayOfWeek}}</b>
+            <ul id="memesUl" class="row-container">
+              {{#memes}}
+              <li class="meme">
+                <ul class="column-container">
+                    <li class="item">
+                      <div class="meme-name container">
+                        <span>{{name}}</span>
+                      </div>
+                    </li>
+                    <li class="item meme-image">
+                      <div class="image-container">
+                        <img src="{{image}}">
+                      </div>
+                    </li>
+                </ul>
+              </li>
+              {{/memes}}
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="reg-dialog-form" title="Register">       
+      <form>
+        <fieldset>
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" class="text ui-widget-content ui-corner-all">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" class="text ui-widget-content ui-corner-all">
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" class="text ui-widget-content ui-corner-all">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" class="text ui-widget-content ui-corner-all">
+        </fieldset>
+      </form>
+    </div>
+
+    <div id="verify-dialog-form" title="Verify">
+      <form>
+        <fieldset>
+            <label for="verification-code">Verification Code</label>
+            <input type="text" id="verification-code" class="text ui-widget-content ui-corner-all">
+        </fieldset>
+      </form>
+    </div>
+
+    <div id="registered-message" title="Registration complete!">
+      <p>
+        <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+        You are now registered!
+      </p>
+    </div>
+
+    <div id="sign-in-form" title="Sign in">
+      <form>
+          <fieldset>            
+            <label for="sign-in-username">Username</label>
+            <input type="text" id="sign-in-username" class="text ui-widget-content ui-corner-all">
+            <label for="sign-in-password">Password</label>
+            <input type="password" id="sign-in-password" class="text ui-widget-content ui-corner-all">
+          </fieldset>
+        </form>
+    </div>
+
+  </body>
+
+</html>

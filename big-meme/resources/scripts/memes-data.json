@@ -1,0 +1,42 @@
+[
+  { 
+    "name": "chuck-norris-doesnt-rollback.jpg", 
+    "image": "https://files.juanmanuelruizfernandez.com/images/memes/epic/chuck-norris-doesnt-rollback.jpg", 
+    "themes": ["epic", "static", "chuck norris", "rollback"] 
+  },
+  { 
+    "name": "joker.gif", 
+    "image": "https://files.juanmanuelruizfernandez.com/images/memes/epic/joker.gif", 
+    "themes": ["epic", "gif", "joker", "batman", "seriously"] 
+  },
+  { 
+    "name": "legacy-code.gif", 
+    "image": "https://files.juanmanuelruizfernandez.com/images/memes/epic/legacy-code.gif", 
+    "themes": ["epic", "gif", "legacy code", "jaguar", "hell"] 
+  },
+  { 
+    "name": "my-job-here-is-done.jpg ", 
+    "image": "https://files.juanmanuelruizfernandez.com/images/memes/epic/my-job-here-is-done.jpg ", 
+    "themes": ["epic", "static", "chuck norris", "job done", "feel like a boss"] 
+  },
+  { 
+    "name": "no-wifi-no-life.gif", 
+    "image": "https://files.juanmanuelruizfernandez.com/images/memes/epic/no-wifi-no-life.gif", 
+    "themes": ["epic", "gif", "wifi", "life", "no wifi no life"] 
+  },
+  { 
+    "name": "programmer-msg.png", 
+    "image": "https://files.juanmanuelruizfernandez.com/images/memes/epic/programmer-msg.png", 
+    "themes": ["epic", "static", "programmer", "hell code", "routine", "warning"] 
+  },
+  { 
+    "name": "rock-on.jpg", 
+    "image": "https://files.juanmanuelruizfernandez.com/images/memes/epic/rock-on.jpg", 
+    "themes": ["epic", "static", "rock on", "metal", "fire metal", "fire"] 
+  },
+  { 
+    "name": "take-note-of-important.jpg", 
+    "image": "https://files.juanmanuelruizfernandez.com/images/memes/epic/take-note-of-important.jpg", 
+    "themes": ["epic", "static", "kill", "patience", "take note"] 
+  }
+]

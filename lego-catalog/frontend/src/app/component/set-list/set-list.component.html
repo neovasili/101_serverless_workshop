@@ -1,0 +1,19 @@
+<div class="component-page-header">
+  <h1>Sets list</h1>
+</div>
+<mat-list class="set-list">
+  <mat-list-item *ngFor="let set of sets"
+      routerLink="/set-detail/{{ set.setReference }}"
+      class="set-list-item">
+    <mat-card class="set-item-card">
+      <mat-card-header>
+        <mat-card-title>{{ set.setName }}</mat-card-title>
+        <mat-card-subtitle>{{ set.setReference}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image
+        src="{{ set.setDefaultImage }}"
+        onerror="this.src='../../../assets/img/no-image.png'"
+        alt="Set default image">
+    </mat-card>
+  </mat-list-item>
+</mat-list>

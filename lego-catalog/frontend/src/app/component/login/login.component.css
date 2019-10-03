@@ -1,0 +1,30 @@
+.header-image {
+  text-align: center;
+}
+
+.login-card-container {
+  padding-top: 5%;
+}
+
+.login-container-card {
+  max-width: 400px;
+  margin: auto;
+}
+
+/deep/ .mat-card-header-text {
+  width: calc( 100% - 32px );
+  text-align: center;
+}
+
+.subtitle-header {
+  font-style: italic;
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.fields-container > * {
+  width: 100%;
+}
