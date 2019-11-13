@@ -1,6 +1,6 @@
 # 101 Serverless Framework workshop
 
-This repository contains the full code and material for the 101 [Serverless Framework](https://serverless.com) prepared by the [author](#author) for the [Extremadura Digital Day 2019](https://2019.extremaduradigitalday.com/ponente/juan-manuel-ruiz-fernandezsngular/) event.
+This repository contains the full code and material for the 101 [Serverless Framework](https://serverless.com) prepared by the [author](#author).
 
 The intention of this workshop is to introduce you to the Serverless Framework over AWS using several small web projects that covers the most common capabilities of the framework to develop web applications.
 
@@ -330,13 +330,13 @@ After a few seconds later, our service stack is been deployed, so we can already
 We are going to invoke our hello function remotely:
 
 ```bash
-sls invoke -f hello --aws-profile jmcore
+sls invoke -f hello --aws-profile PROFILE_NAME
 ```
 
 If everthing was fine, we will receive the same hello world response:
 
 ```bash
-➜ sls invoke --stage dev -f hello --aws-profile jmcore
+➜ sls invoke --stage dev -f hello --aws-profile PROFILE_NAME
 {
     "statusCode": 200,
     "body": "{\n  \"message\": \"Go Serverless v1.0! Your function executed successfully!\",\n  \"input\": {}\n}"
@@ -371,6 +371,7 @@ Here are some related and interesting references used in this workshop:
 *  https://serverless.com/framework/docs/providers/aws/
 *  https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
 *  https://github.com/neovasili/101_serverless_workshop
+*  https://www.datree.io/resources/serverless-best-practices
 
 ---
 
