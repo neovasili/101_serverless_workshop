@@ -14,6 +14,7 @@
         "co": "^4.6.0",
         "fs": "0.0.1-security",
         "mustache": "^3.0.1",
+        "serverless": "^1.57.0",
         "superagent": "^4.1.0",
         "superagent-promise": "^1.1.0"
     },

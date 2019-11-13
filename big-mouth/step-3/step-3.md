@@ -673,7 +673,7 @@ module.exports.handler = co.wrap( function* ( event, context, callback ) {
 Now we can test our full application locally using `serverless-offline` plugin:
 
 ```bash
-sls offline --stage dev --noAuth --aws-profile jmcore
+sls offline --stage dev --noAuth --aws-profile PROFILE_NAME
 ```
 
 Pay attention in the parameter `--noAuth` that we have introduced. Thus is for avoid the API Gateway simulator to check your authorizer, so this let you test locally overriding the Cognito validation.
