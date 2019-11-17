@@ -35,7 +35,7 @@ Because we are working over AWS, we have to keep an eye on the main services use
 Here is the basic diagram:
 
 <div align="center" alt="serverless basic web application diagram">
-    <img src="assets/img/AWS Serverless Web App Hosting-2.png" />
+    <img src="https://files.juanmanuelruizfernandez.com/images/AWS Serverless Web App Hosting-2.png" />
 </div>
 
 ## What is Serverless Framework?
